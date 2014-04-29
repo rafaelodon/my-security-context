@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Teste do Contexto de Segurança</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGroup rendered="#{!exampleMB.loggedIn}">
+                Username: <h:inputText value="#{exampleMB.username}"/><br/>
+                Password: <h:inputSecret value="#{exampleMB.password}"/><br/>
+                <h:commandButton value="Log me in!" action="#{exampleMB.onClickLogin()}"/><br/>
+            </h:panelGroup>
+            <h:panelGroup rendered="#{exampleMB.loggedIn}">
+                You are logged as <b><h:outputText value="#{exampleMB.userFullName}" /></b><br/>
+                <h:commandButton value="Log me out!" action="#{exampleMB.onClickLogout()}"><br/>
+            </h:commandButton></h:panelGroup>
+            <h:commandButton value="Test if I'm logged in!" action="#{exampleMB.onClickTestLogin()}" />            
+            <h:commandButton value="Test if I'm ADMIN!" action="#{exampleMB.onClickTestAdminRole()}" />            
+        </h:form>
+    </h:body>
+</html>
+
